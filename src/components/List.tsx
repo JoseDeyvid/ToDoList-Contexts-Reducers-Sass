@@ -1,8 +1,19 @@
 import React from 'react'
+import { TaskModel } from '../utils/types'
+import Task from './Task'
 
-const List = () => {
+type Props = {
+    tasks: TaskModel[],
+    setTasks: React.Dispatch<React.SetStateAction<TaskModel[]>>
+}
+
+const List = ({tasks, setTasks}: Props) => {
   return (
-    <div>List</div>
+    <div>
+        {tasks.map((task) => (
+            <Task key={task.id} task={task} setTasks={setTasks}/>
+        ))}
+    </div>
   )
 }
 
