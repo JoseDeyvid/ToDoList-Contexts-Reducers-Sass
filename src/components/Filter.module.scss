@@ -1,0 +1,30 @@
+.filterContainer {
+    margin-bottom: 2rem;
+    .title {
+        padding: 1rem 0;
+        font-size: medium;
+    }
+
+    .actions {
+        display: flex;
+        gap: .5rem;
+
+        button {
+            padding: .4rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+
+
+        }
+
+        .isActive {
+            background-color: rgb(176, 35, 35);
+            color: var(--white-color);
+        }
+
+        .removeBtn {
+            background: none;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.headerContainer {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+    button {
+        padding:.5rem;
+        color: var(--white-color);
+        background-color: var(--secondary-color);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--black-color);
+        }
+    }
+}

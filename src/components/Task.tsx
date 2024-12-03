@@ -1,5 +1,6 @@
-import React from 'react'
+import styles from "./Task.module.scss"
 import { TaskModel } from '../utils/types'
+import { FaTrash } from "react-icons/fa";
 
 type Props = {
   task: TaskModel,
@@ -20,13 +21,16 @@ const Task = ({ task, setTasks }: Props) => {
   }
 
   return (
-    <div>
-      <h2>{task.title}</h2>
-      <p>{task.description}</p>
-      <div onClick={() => toggleTaskHandler(task.id)}>
+    <div className={styles.container}>
+      <h2 className={`${task.done ? styles.done : ""}`}>{task.title}</h2>
+      <p className={`${task.done ? styles.done : ""}`}>{task.description}</p>
+      <div className={styles.toogleBtn} onClick={() => toggleTaskHandler(task.id)}>
         <input type="radio" checked={task.done} readOnly />
         <label>{task.done ? "Done" : "To-Do"}</label>
       </div>
+      <button className={styles.removeBtn}>
+        <FaTrash />
+      </button>
     </div>
   )
 }
