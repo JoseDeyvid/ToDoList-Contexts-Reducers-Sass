@@ -10,7 +10,7 @@ import ModalAddTask from './components/ModalAddTask'
 
 function App() {
 
-  const [tasks, setTasks] = useState<TaskModel[]>([]);
+  const [tasks, setTasks] = useState<TaskModel[]>(JSON.parse(localStorage.getItem("tasks") || '[]'));
   const [filter, setFilter] = useState('all')
   const [filteredTasks, setFilteredTasks] = useState<TaskModel[]>(tasks);
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -29,6 +29,11 @@ function App() {
         setFilteredTasks(tasks.filter((task) => task))
     }
   }, [filter, tasks])
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
+
   return (
     <div className={styles.app}>
       <Header setModalIsActive={setModalIsActive} />

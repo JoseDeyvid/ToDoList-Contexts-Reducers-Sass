@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { TaskModel } from '../utils/types'
+import { v4 as uuid } from 'uuid'
 
 type Props = {
   setModalIsActive: React.Dispatch<React.SetStateAction<boolean>>,
@@ -19,7 +20,7 @@ const ModalAddTask = ({ setModalIsActive, tasks, setTasks }: Props) => {
   const addTaskHandler = () => {
 
     const task: TaskModel = {
-      id: tasks.length,
+      id: uuid(),
       title,
       description,
       done: false
