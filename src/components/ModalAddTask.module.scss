@@ -1,0 +1,69 @@
+.bgModal {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000007d;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(var(--header-height) * -1));
+
+    .container {
+        background-color: var(--white-color);
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        min-height: 400px;
+        gap: 1rem;
+        width: 500px;
+        border-radius: 6px;
+        padding: 1rem;
+        position: relative;
+
+        .formControl {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin-bottom: .3rem;
+            }
+
+            input, textarea {
+                border-radius: 4px;
+                padding: .5rem;
+                font-size: 16px;
+                border: 1px solid var(--gray-color);
+                // outline-color: var(--gray-color);
+            }
+
+            textarea {
+                height: 80px;
+            }
+        }
+
+        .btnAddTask {
+            padding: .5rem;
+            width: fit-content;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background-color: var(--gray-color);
+
+            &:hover {
+                background-color: var(--black-color);
+                color: var(--white-color);
+            }
+        }
+
+        .btnClose {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 1rem;
+            background-color: var(--white-color);
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

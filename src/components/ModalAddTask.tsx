@@ -1,3 +1,4 @@
+import styles from "./ModalAddTask.module.scss"
 import React, { useState } from 'react'
 import { TaskModel } from '../utils/types'
 import { v4 as uuid } from 'uuid'
@@ -39,18 +40,20 @@ const ModalAddTask = ({ setModalIsActive, tasks, setTasks }: Props) => {
     }
   }
   return (
-    <div>
-      <h3>Add a new task</h3>
-      <div>
-        <label>Title</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+    <div className={styles.bgModal}>
+      <div className={styles.container}>
+        <h3>Add a new task</h3>
+        <div className={styles.formControl}>
+          <label>Title</label>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        </div>
+        <div className={styles.formControl}>
+          <label>Description</label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+        </div>
+        <button onClick={addTaskHandler} className={styles.btnAddTask}>Add Task</button>
+        <button className={styles.btnClose} onClick={closeModalHandler}>x</button>
       </div>
-      <div>
-        <label>Description</label>
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-      </div>
-      <button onClick={addTaskHandler}>Add Task</button>
-      <button onClick={closeModalHandler}>X</button>
     </div>
   )
 }
